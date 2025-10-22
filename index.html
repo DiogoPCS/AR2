@@ -15,8 +15,7 @@
 <body style="margin:0; overflow:hidden;">
   <div class="arjs-loader"><div>Loading, please wait...</div></div>
 
-
-   <a-scene
+  <a-scene
     vr-mode-ui="enabled: false"
     renderer="logarithmicDepthBuffer: true"
     embedded
@@ -48,21 +47,19 @@
 
   <script>
     // Quando o GLTF terminar de carregar, anexamos os eventos de clique/toque
-
     const cadeira = document.getElementById('cadeira');
 
     // Se quiser garantir que a malha está pronta:
     cadeira.addEventListener('model-loaded', () => {
       // Clique com mouse (desktop) ou toque (mobile) via raycaster
       cadeira.addEventListener('click', () => {
-        alert('Você clicou na cadeira!');
+        alert('Você clicou no cadeira!');
       });
 
       // Fallback extra para alguns navegadores móveis
       cadeira.addEventListener('touchstart', () => {
-        alert('Você tocou na cadeira!');
+        alert('Você tocou no cadeira!');
       }, { passive: true });
     });
-
   </script>
 </body>
