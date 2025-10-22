@@ -15,35 +15,6 @@
 <body style="margin:0; overflow:hidden;">
   <div class="arjs-loader"><div>Loading, please wait...</div></div>
 
-  <a-scene
-    vr-mode-ui="enabled: false"
-    renderer="logarithmicDepthBuffer: true"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-  >
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/foto/foto"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="personagem" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/foto/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- CÂMERA + CURSOR/RAYCASTER -->
-    <!-- rayOrigin: mouse permite clicar/toque na tela; o raycaster só acerta objetos com a classe configurada -->
-    <a-entity camera look-controls="enabled: false">
-      <a-cursor
-        raycaster="objects: .clickable; far: 1000;"
-        cursor="fuse: false; rayOrigin: mouse">
-      </a-cursor>
-    </a-entity>
-  </a-scene>
 
    <a-scene
     vr-mode-ui="enabled: false"
@@ -75,110 +46,21 @@
     </a-entity>
   </a-scene>
 
-   <a-scene
-    vr-mode-ui="enabled: false"
-    renderer="logarithmicDepthBuffer: true"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-  >
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/porta2/porta2"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="porta2" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/porta2/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- CÂMERA + CURSOR/RAYCASTER -->
-    <!-- rayOrigin: mouse permite clicar/toque na tela; o raycaster só acerta objetos com a classe configurada -->
-    <a-entity camera look-controls="enabled: false">
-      <a-cursor
-        raycaster="objects: .clickable; far: 1000;"
-        cursor="fuse: false; rayOrigin: mouse">
-      </a-cursor>
-    </a-entity>
-  </a-scene>
-
-   <a-scene
-    vr-mode-ui="enabled: false"
-    renderer="logarithmicDepthBuffer: true"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-  >
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/tv/tv"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="tv" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/tv/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- CÂMERA + CURSOR/RAYCASTER -->
-    <!-- rayOrigin: mouse permite clicar/toque na tela; o raycaster só acerta objetos com a classe configurada -->
-    <a-entity camera look-controls="enabled: false">
-      <a-cursor
-        raycaster="objects: .clickable; far: 1000;"
-        cursor="fuse: false; rayOrigin: mouse">
-      </a-cursor>
-    </a-entity>
-  </a-scene>
-
   <script>
     // Quando o GLTF terminar de carregar, anexamos os eventos de clique/toque
-    const alvo = document.getElementById('personagem');
+
     const lousa = document.getElementById('lousa');
-    const porta2 = document.getElementById('porta2');
-    const tv = document.getElementById('tv');
 
     // Se quiser garantir que a malha está pronta:
-    alvo.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      alvo.addEventListener('click', () => {
-        alert('Você clicou no personagem!');
-      });
-
-      // Fallback extra para alguns navegadores móveis
-      alvo.addEventListener('touchstart', () => {
-        alert('Você tocou no personagem!');
-      }, { passive: true });
-    });
-
     lousa.addEventListener('model-loaded', () => {
+      // Clique com mouse (desktop) ou toque (mobile) via raycaster
       lousa.addEventListener('click', () => {
         alert('Você clicou na lousa!');
       });
+
+      // Fallback extra para alguns navegadores móveis
       lousa.addEventListener('touchstart', () => {
         alert('Você tocou na lousa!');
-      }, { passive: true });
-    });
-
-    porta2.addEventListener('model-loaded', () => {
-      porta2.addEventListener('click', () => {
-        alert('Você clicou na porta!');
-      });
-      porta2.addEventListener('touchstart', () => {
-        alert('Você tocou na porta!');
-      }, { passive: true });
-    });
-
-    tv.addEventListener('model-loaded', () => {
-      tv.addEventListener('click', () => {
-        alert('Você clicou na TV!');
-      });
-      tv.addEventListener('touchstart', () => {
-        alert('Você tocou na TV!');
       }, { passive: true });
     });
 
