@@ -25,12 +25,12 @@
     <!-- MARCADOR NFT -->
     <a-nft
       type="nft"
-      url="https://diogopcs.github.io/AR2/lousa/lousa"
+      url="https://diogopcs.github.io/AR2/cadeira/cadeira"
       smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
     >
       <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="lousa" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/lousa/scene.gltf"
+      <a-entity id="cadeira" class="clickable"
+        gltf-model="https://diogopcs.github.io/AR2/cadeira/scene.gltf"
         scale="1 1 1"
         position="50 50 0">
       </a-entity>
@@ -49,18 +49,18 @@
   <script>
     // Quando o GLTF terminar de carregar, anexamos os eventos de clique/toque
 
-    const lousa = document.getElementById('lousa');
+    const cadeira = document.getElementById('cadeira');
 
     // Se quiser garantir que a malha está pronta:
-    lousa.addEventListener('model-loaded', () => {
+    cadeira.addEventListener('model-loaded', () => {
       // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      lousa.addEventListener('click', () => {
-        alert('Você clicou na lousa!');
+      cadeira.addEventListener('click', () => {
+        alert('Você clicou na cadeira!');
       });
 
       // Fallback extra para alguns navegadores móveis
-      lousa.addEventListener('touchstart', () => {
-        alert('Você tocou na lousa!');
+      cadeira.addEventListener('touchstart', () => {
+        alert('Você tocou na cadeira!');
       }, { passive: true });
     });
 
