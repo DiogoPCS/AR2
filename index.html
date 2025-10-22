@@ -35,90 +35,6 @@
       </a-entity>
     </a-nft>
 
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/janela/janela"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="janela" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/janela/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/rampa/rampa"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="rampa" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/rampa/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/porta/porta"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="porta" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/porta/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/corredor/corredor"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="corredor" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/corredor/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/extintor/extintor"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="extintor" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/extintor/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/jardim/jardim"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
-    >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="jardim" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/jardim/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
-
     <!-- CÂMERA + CURSOR/RAYCASTER -->
     <!-- rayOrigin: mouse permite clicar/toque na tela; o raycaster só acerta objetos com a classe configurada -->
     <a-entity camera look-controls="enabled: false">
@@ -132,13 +48,6 @@
   <script>
     // Quando o GLTF terminar de carregar, anexamos os eventos de clique/toque
     const alvo = document.getElementById('personagem');
-    const janela = document.getElementById('janela');
-    const porta = document.getElementById('porta');
-    const rampa = document.getElementById('rampa');
-    const corredor = document.getElementById('corredor');
-    const extintor = document.getElementById('extintor');
-    const jardim = document.getElementById('jardim');
-
 
     // Se quiser garantir que a malha está pronta:
     alvo.addEventListener('model-loaded', () => {
@@ -153,82 +62,5 @@
       }, { passive: true });
     });
 
-    // Se quiser garantir que a malha está pronta:
-    janela.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      janela.addEventListener('click', () => {
-        alert('Você clicou no janela!');
-      });
-
-      // Fallback extra para alguns navegadores móveis
-      janela.addEventListener('touchstart', () => {
-        alert('Você tocou no janela!');
-      }, { passive: true });
-    });
-
-    // Se quiser garantir que a malha está pronta:
-    rampa.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      rampa.addEventListener('click', () => {
-        alert('Você clicou no rampa!');
-      });
-
-      // Fallback extra para alguns navegadores móveis
-      rampa.addEventListener('touchstart', () => {
-        alert('Você tocou no rampa!');
-      }, { passive: true });
-    });
-
-    // Se quiser garantir que a malha está pronta:
-    porta.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      porta.addEventListener('click', () => {
-        alert('Você clicou no porta!');
-      });
-
-      // Fallback extra para alguns navegadores móveis
-      porta.addEventListener('touchstart', () => {
-        alert('Você tocou no porta!');
-      }, { passive: true });
-    });
-
-    // Se quiser garantir que a malha está pronta:
-    corredor.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      corredor.addEventListener('click', () => {
-        alert('Você clicou no corredor!');
-      });
-
-      // Fallback extra para alguns navegadores móveis
-      corredor.addEventListener('touchstart', () => {
-        alert('Você tocou no corredor!');
-      }, { passive: true });
-    });
-
-    // Se quiser garantir que a malha está pronta:
-    extintor.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      extintor.addEventListener('click', () => {
-        alert('Você clicou no extintor!');
-      });
-
-      // Fallback extra para alguns navegadores móveis
-      extintor.addEventListener('touchstart', () => {
-        alert('Você tocou no extintor!');
-      }, { passive: true });
-    });
-
-    // Se quiser garantir que a malha está pronta:
-    jardim.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      jardim.addEventListener('click', () => {
-        alert('Você clicou no jardim!');
-      });
-
-      // Fallback extra para alguns navegadores móveis
-      jardim.addEventListener('touchstart', () => {
-        alert('Você tocou no jardim!');
-      }, { passive: true });
-    });
   </script>
 </body>
