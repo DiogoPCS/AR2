@@ -24,12 +24,12 @@
     <!-- MARCADOR NFT -->
     <a-nft
       type="nft"
-      url="https://diogopcs.github.io/AR2/cadeira/cadeira"
+      url="https://diogopcs.github.io/AR2/foto/foto"
       smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
     >
       <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="cadeira" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/cadeira/scene.gltf"
+      <a-entity id="personagem" class="clickable"
+        gltf-model="https://diogopcs.github.io/AR2/foto/scene.gltf"
         scale="1 1 1"
         position="50 50 0">
       </a-entity>
@@ -47,18 +47,18 @@
 
   <script>
     // Quando o GLTF terminar de carregar, anexamos os eventos de clique/toque
-    const cadeira = document.getElementById('cadeira');
+    const alvo = document.getElementById('personagem');
 
     // Se quiser garantir que a malha está pronta:
-    cadeira.addEventListener('model-loaded', () => {
+    alvo.addEventListener('model-loaded', () => {
       // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      cadeira.addEventListener('click', () => {
-        alert('Você clicou no cadeira!');
+      alvo.addEventListener('click', () => {
+        alert('Você clicou no personagem!');
       });
 
       // Fallback extra para alguns navegadores móveis
-      cadeira.addEventListener('touchstart', () => {
-        alert('Você tocou no cadeira!');
+      alvo.addEventListener('touchstart', () => {
+        alert('Você tocou no personagem!');
       }, { passive: true });
     });
   </script>
