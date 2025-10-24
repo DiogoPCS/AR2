@@ -1,65 +1,73 @@
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
 
-<style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute; top: 0; left: 0;
-    background-color: rgba(0,0,0,0.8);
-    z-index: 9999; display: flex; justify-content: center; align-items: center;
-  }
-  .arjs-loader div { text-align: center; font-size: 1.25em; color: white; }
-</style>
-
-<body style="margin:0; overflow:hidden;">
-  <div class="arjs-loader"><div>Loading, please wait...</div></div>
-
-  <a-scene
-    vr-mode-ui="enabled: false"
-    renderer="logarithmicDepthBuffer: true"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-  >
-    <!-- MARCADOR NFT -->
-    <a-nft
-      type="nft"
-      url="https://diogopcs.github.io/AR2/carregador/carregador"
-      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
+  <body>
+    <a-scene
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
     >
-      <!-- ENVOLVA O MODELO EM UMA ENTIDADE COM A CLASSE 'clickable' -->
-      <a-entity id="personagem" class="clickable"
-        gltf-model="https://diogopcs.github.io/AR2/carregador/scene.gltf"
-        scale="1 1 1"
-        position="50 50 0">
-      </a-entity>
-    </a-nft>
+      <!-- Primeiro objeto com ID -->
+      <a-entity
+        id="primeiro"
+        gltf-model="url(https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Avocado/glTF-Binary/Avocado.glb)"
+        look-at="[gps-camera]"
+        scale="30 30 30"
+        gps-entity-place="latitude:-23.346555;longitude:-47.845286;"
+      ></a-entity>
+      <!-- -23.346555, -47.845286 -->
 
-    <!-- CÂMERA + CURSOR/RAYCASTER -->
-    <!-- rayOrigin: mouse permite clicar/toque na tela; o raycaster só acerta objetos com a classe configurada -->
-    <a-entity camera look-controls="enabled: false">
-      <a-cursor
-        raycaster="objects: .clickable; far: 1000;"
-        cursor="fuse: false; rayOrigin: mouse">
-      </a-cursor>
-    </a-entity>
-  </a-scene>
 
-  <script>
-    // Quando o GLTF terminar de carregar, anexamos os eventos de clique/toque
-    const alvo = document.getElementById('personagem');
 
-    // Se quiser garantir que a malha está pronta:
-    alvo.addEventListener('model-loaded', () => {
-      // Clique com mouse (desktop) ou toque (mobile) via raycaster
-      alvo.addEventListener('click', () => {
-        alert('Você clicou no personagem!');
+      <!-- Outros objetos -->
+      <a-entity
+        gltf-model="url(https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Avocado/glTF-Binary/Avocado.glb)"
+        look-at="[gps-camera]"
+        scale="30 30 30"
+        gps-entity-place="latitude: -23.346408; longitude: -47.845087;"
+      ></a-entity>
+      <!-- -23.346408, -47.845087 -->
+
+      <a-entity
+        gltf-model="url(https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Avocado/glTF-Binary/Avocado.glb)"
+        look-at="[gps-camera]"
+        scale="30 30 30"
+        gps-entity-place="latitude: -23.346455; longitude: -47.845192;"
+      ></a-entity>
+      <!-- -23.346455, -47.845192 -->
+
+
+      <!-- Câmera com cursor para clique -->
+      <a-camera gps-camera rotation-reader>
+        <a-cursor
+          fuse="false"
+          raycaster="objects: a-entity"
+        ></a-cursor>
+      </a-camera>
+    </a-scene>
+
+    <script>
+      // Pega o objeto pelo ID
+      const primeiro = document.querySelector('#primeiro');
+      const ultimo = document.querySelector('#ultimo');
+
+      // Adiciona evento de clique
+      primeiro.addEventListener('click', () => {
+        alert('Você clicou no primeiro objeto!');
       });
 
-      // Fallback extra para alguns navegadores móveis
-      alvo.addEventListener('touchstart', () => {
-        alert('Você tocou no personagem!');
-      }, { passive: true });
-    });
-  </script>
-</body>
+      // Pega o objeto pelo ID
+
+      // Adiciona evento de clique
+      ultimo.addEventListener('click', () => {
+        alert('Você clicou no ultimo objeto!');
+      });
+    </script>
+  </body>
+</html>
