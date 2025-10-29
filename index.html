@@ -18,11 +18,10 @@
         id="primeiro"
         gltf-model="url(./scene/scene.gltf)"
         look-at="[gps-camera]"
-        scale="0.03 0.03 0.03"
+        scale="0.02 0.02 0.02"
         gps-entity-place="latitude:-23.346551;longitude:-47.845290;"
       ></a-entity>
       <!-- -23.346551, -47.845290 -->
-
 
 
       <!-- Outros objetos -->
@@ -55,7 +54,6 @@
     <script>
       // Pega o objeto pelo ID
       const primeiro = document.querySelector('#primeiro');
-      const ultimo = document.querySelector('#ultimo');
 
       // Adiciona evento de clique
       primeiro.addEventListener('click', () => {
@@ -64,10 +62,6 @@
 
       // Pega o objeto pelo ID
 
-      // Adiciona evento de clique
-      ultimo.addEventListener('click', () => {
-        alert('Você clicou no ultimo objeto!');
-      });
     </script>
   </body>
 </html>
